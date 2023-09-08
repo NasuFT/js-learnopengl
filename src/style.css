@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(31, 31, 31);
+}
+
+#app {
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: auto;
+  display: flex;
+}
+
+#drawer {
+  padding: 8px;
+}
+
+#canvas-container {
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="app">
+      <nav id="drawer">
+        <h2 style="color: rgba(255, 255, 255, 0.87); margin-bottom: 1em">
+          Section:
+        </h2>
+        <select id="section-select" style="margin-bottom: 3em"></select>
+        <h2 style="color: rgba(255, 255, 255, 0.87); margin-bottom: 1em">
+          Lesson:
+        </h2>
+        <select id="lesson-select"></select>
+      </nav>
+      <div id="canvas-container"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

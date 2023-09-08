@@ -8,7 +8,7 @@ let worker: Worker | null = null;
 let id: string | null = "1";
 let sectionKey: string | null = null;
 
-// createoptions
+// create options
 interface Sections {
   [key: string]: {
     title: string;
@@ -18,7 +18,7 @@ interface Sections {
 const addSections = (select: HTMLSelectElement, sections: Sections) => {
   const fragment = document.createDocumentFragment();
   for (const key in sections) {
-    console.log(key)
+    console.log(key);
     if (sectionKey === null) {
       sectionKey = key;
     }
@@ -60,6 +60,8 @@ const selectLessonElement = document.getElementById(
   "lesson-select"
 ) as HTMLSelectElement;
 addLessons(selectLessonElement, metadata, sectionKey!);
+
+// canvas worker functions
 
 const resizeCanvasThrottled = throttle(() => {
   if (!worker) {
@@ -157,38 +159,3 @@ selectLessonElement.addEventListener("change", (event) => {
   initializeWorker();
   startWorker();
 });
-
-// pre-processing
-
-// canvas handling
-// worker.postMessage({
-//   event: "init",
-//   width: canvasElement.width,
-//   height: canvasElement.height,
-// });
-
-// // processing
-
-// worker.onmessage = (evt) => {
-//   const { event } = evt.data;
-//   switch (event) {
-//     case "initialized":
-//       worker.postMessage({
-//         event: "start",
-//         id: 1,
-//       });
-//       break;
-//   }
-// };
-
-// addEventListener(
-//   "resize",
-//   throttle(() => {
-//     const { width, height } = getElementContentSize(canvasContainerElement);
-//     worker.postMessage({
-//       event: "resize",
-//       containerWidth: width,
-//       containerHeight: height,
-//     });
-//   }, 1000 / 15)
-// );

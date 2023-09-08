@@ -36,6 +36,18 @@ const resizeCanvas = (containerWidth: number, containerHeight: number) => {
   canvas.height = height;
 };
 
+const resizeViewport = (
+  gl: WebGLRenderingContext | null,
+  width: number,
+  height: number
+) => {
+  if (!gl) {
+    return;
+  }
+
+  gl.viewport(0, 0, width, height);
+};
+
 onmessage = (evt) => {
   const { event } = evt.data;
   switch (event) {
@@ -50,6 +62,7 @@ onmessage = (evt) => {
     case "resize":
       const { containerWidth, containerHeight } = evt.data;
       resizeCanvas(containerWidth, containerHeight);
+      resizeViewport(gl, canvas!.width, canvas!.height);
       break;
   }
 };

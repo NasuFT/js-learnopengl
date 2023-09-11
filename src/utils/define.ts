@@ -1,1 +1,1 @@
-export const defineProgram = (fn: (gl: WebGLRenderingContext) => void) => fn;
+export const defineProgram = (fn: (gl: WebGL2RenderingContext) => void) => fn;

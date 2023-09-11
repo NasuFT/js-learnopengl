@@ -18,16 +18,35 @@ export default defineProgram((gl) => {
   gl.deleteShader(vertexShader);
   gl.deleteShader(fragmentShader);
 
-  const vertices = [-0.5, -0.5, 0, 0.5, -0.5, 0, 0, 0.5, 0];
+  const vertices = [
+    0.5, 0.5, 0.0, 0.5, -0.5, 0.0, -0.5, -0.5, 0.0, -0.5, 0.5, 0.0,
+  ];
+  // changed due to automatic wireframing not present in WebGL 2 / OpenGL ES 3.0
+  const indices = [0, 1, 1, 2, 2, 3, 0, 3, 1, 3];
 
   const VAO = gl.createVertexArray();
   gl.bindVertexArray(VAO);
+
+  const EBO = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, EBO);
+  gl.bufferData(
+    gl.ELEMENT_ARRAY_BUFFER,
+    new Uint32Array(indices),
+    gl.STATIC_DRAW
+  );
 
   const VBO = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, VBO);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
-  gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 3 * Float32Array.BYTES_PER_ELEMENT, 0);
+  gl.vertexAttribPointer(
+    0,
+    3,
+    gl.FLOAT,
+    false,
+    3 * Float32Array.BYTES_PER_ELEMENT,
+    0
+  );
   gl.enableVertexAttribArray(0);
 
   const draw = () => {
@@ -36,7 +55,7 @@ export default defineProgram((gl) => {
 
     gl.useProgram(program);
     gl.bindVertexArray(VAO);
-    gl.drawArrays(gl.TRIANGLES, 0, 3);
+    gl.drawElements(gl.LINES, 10, gl.UNSIGNED_INT, 0);
 
     requestAnimationFrame(draw);
   };

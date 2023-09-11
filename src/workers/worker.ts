@@ -1,15 +1,15 @@
 import { getChildCanvasSize } from "@/utils";
 
 let canvas: OffscreenCanvas | null = null;
-let gl: WebGLRenderingContext | null = null;
+let gl: WebGL2RenderingContext | null = null;
 
 interface FileModule {
-  default: (gl: WebGLRenderingContext) => void;
+  default: (gl: WebGL2RenderingContext) => void;
 }
 
 const initialize = (offscreen: OffscreenCanvas) => {
   canvas = offscreen;
-  gl = canvas.getContext("webgl");
+  gl = canvas.getContext("webgl2");
 };
 
 const start = (id: string | null) => {
@@ -37,7 +37,7 @@ const resizeCanvas = (containerWidth: number, containerHeight: number) => {
 };
 
 const resizeViewport = (
-  gl: WebGLRenderingContext | null,
+  gl: WebGL2RenderingContext | null,
   width: number,
   height: number
 ) => {

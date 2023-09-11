@@ -18,7 +18,6 @@ interface Sections {
 const addSections = (select: HTMLSelectElement, sections: Sections) => {
   const fragment = document.createDocumentFragment();
   for (const key in sections) {
-    console.log(key);
     if (sectionKey === null) {
       sectionKey = key;
     }

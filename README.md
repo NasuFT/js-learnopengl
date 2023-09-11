@@ -10,12 +10,13 @@ LearnOpenGL is based on OpenGL 3.3 (Core-profile), while WebGL 2 is based on Ope
 
 <details>
 <summary>Wireframing</summary>
+
 `glPolygonMode()` is not available in WebGL 2 (or in OpenGL ES 3.0). As a workaround, `GL_LINES` needs to be used, thereby increasing the number of calls made to `glDrawArrays()` or equivalent compared to `glPolygonMode()`. Furthermore, indices/vertices need to be specified in order, practically limiting this workaround to very simple primitives. Larger datasets would need to be preprocessed beforehand.
 </details>
 
-<details>
-
 # Further Information
+
+<details>
 
 <summary>(DEPRECATED) Upgraded to WebGL 2</summary>
 

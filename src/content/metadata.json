@@ -19,5 +19,13 @@
   "4": {
     "section": "section-1",
     "title": "Hello Triangle - Exercise"
+  },
+  "5": {
+    "section": "section-1",
+    "title": "Shaders - Color Cycle"
+  },
+  "6": {
+    "section": "section-1",
+    "title": "Shaders - Three Colors"
   }
 }

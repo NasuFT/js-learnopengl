@@ -41,6 +41,7 @@ export default defineProgram((gl) => {
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     shader.use();
+    shader.setFloat("offset", 0.5);
     gl.bindVertexArray(VAO);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
 

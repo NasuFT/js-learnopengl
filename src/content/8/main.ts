@@ -5,10 +5,7 @@ import fragmentShaderCode from "./main.frag?raw";
 export default defineProgram((gl) => {
   const shader = new Shader(gl, vertexShaderCode, fragmentShaderCode);
 
-  const vertices = [
-    0.5, -0.5, 0.0, 1.0, 0.0, 0.0, -0.5, -0.5, 0.0, 0.0, 1.0, 0.0, 0.0, 0.5,
-    0.0, 0.0, 0.0, 1.0,
-  ];
+  const vertices = [0.5, -0.5, 0.0, -0.5, -0.5, 0.0, 0.0, 0.5, 0.0];
 
   const VAO = gl.createVertexArray();
   gl.bindVertexArray(VAO);
@@ -22,19 +19,10 @@ export default defineProgram((gl) => {
     3,
     gl.FLOAT,
     false,
-    6 * Float32Array.BYTES_PER_ELEMENT,
+    3 * Float32Array.BYTES_PER_ELEMENT,
     0
   );
-  gl.vertexAttribPointer(
-    1,
-    3,
-    gl.FLOAT,
-    false,
-    6 * Float32Array.BYTES_PER_ELEMENT,
-    3 * Float32Array.BYTES_PER_ELEMENT
-  );
   gl.enableVertexAttribArray(0);
-  gl.enableVertexAttribArray(1);
 
   const draw = () => {
     gl.clearColor(0.2, 0.3, 0.3, 1.0);

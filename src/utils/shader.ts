@@ -1,4 +1,4 @@
-class Shader {
+export class Shader {
   #ID;
   #gl;
   constructor(
@@ -39,5 +39,3 @@ class Shader {
     this.#gl.uniform1f(this.#gl.getUniformLocation(this.#ID, name), value);
   }
 }
-
-export default Shader;
